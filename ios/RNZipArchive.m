@@ -28,7 +28,7 @@ RCT_EXPORT_METHOD(unzip:(NSString *)from
 
     [self zipArchiveProgressEvent:0 total:1 filePath:from]; // force 0%
 
-    BOOL success = [RNZASSZipArchive unzipFileAtPath:from toDestination:destinationPath delegate:self];
+    BOOL success = [SSZipArchive unzipFileAtPath:from toDestination:destinationPath delegate:self];
 
     [self zipArchiveProgressEvent:1 total:1 filePath:from]; // force 100%
 
@@ -47,7 +47,7 @@ RCT_EXPORT_METHOD(zip:(NSString *)from
 
     [self zipArchiveProgressEvent:0 total:1 filePath:destinationPath]; // force 0%
 
-    BOOL success = [RNZASSZipArchive createZipFileAtPath:destinationPath withContentsOfDirectory:from];
+    BOOL success = [SSZipArchive createZipFileAtPath:destinationPath withContentsOfDirectory:from];
 
     [self zipArchiveProgressEvent:1 total:1 filePath:destinationPath]; // force 100%
 
